@@ -29,12 +29,28 @@ def cached_method():
     pass
 
 
-st.title("{{ cookiecutter.package_name }}")
-# st.text("")
-# st.image("")
-# st.markdown("")
-# st.dataframe(df)
+def view1():
+    st.title("{{ cookiecutter.package_name }}")
+    # st.text("")
+    # st.image("")
+    # st.markdown("")
+    # st.dataframe(df)
 
-with st.echo():
-    # Put your code to show here.
+    with st.echo():
+        # Put your code to show here.
+        pass
+
+
+def view2():
     pass
+
+
+def view3():
+    pass
+
+
+PAGES = {"View 1": view1, "View 2": view2, "View 3": view3}
+st.sidebar.title("Change view")
+selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+page = PAGES[selection]
+page()
